@@ -27,7 +27,7 @@ A simple desktop app for encrypting text with RSA and hiding messages inside ima
 Clone the repo and install the required libraries:
 
 ```bash
-git clone https://github.com
+git clone https://github.com/oohoggh/RSA-LSB-Cipher
 cd rsa-lsb-cipher
 pip install flask pillow pywebview
 ```
