@@ -1,0 +1,224 @@
+body {
+    margin: 0;
+    padding: 20px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: rgb(29, 29, 29);
+    color: rgb(220, 220, 220);
+}
+
+h1 {
+    color: rgb(210, 210, 210);
+    text-align: center;
+    margin: 10px 0 24px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+div {
+    width: 100%;
+    word-break: break-all;
+    overflow-wrap: break-word;
+    padding: 2px;
+    margin-top: 8px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-family: monospace;
+    color: rgb(187, 187, 187);
+}
+
+.center {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+table {
+    width: 70vw;
+    margin: 0 auto;
+    table-layout: fixed;
+    border-collapse: separate;
+}
+
+.full-width-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.full-width-table td {
+    width: 50%;
+    text-align: center;
+    vertical-align: middle;
+    padding: 4px;
+}
+
+.mode-switcher {
+    display: flex;
+    width: 100%;
+    margin: 15px auto;
+    background-color: rgb(42, 42, 42);
+    border: 1px solid #4a4a4a;
+    border-radius: 8px;
+    padding: 4px;
+    box-sizing: border-box;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+.mode-switcher a {
+    flex: 1;
+    text-align: center;
+    text-decoration: none;
+    padding: 9px 12px;
+    color: rgb(187, 187, 187);
+    font-size: 15px;
+    border-radius: 6px;
+    transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.mode-switcher a:hover {
+    color: #ffffff;
+    background-color: rgb(62, 62, 62);
+}
+
+.mode-switcher a.active {
+    background-color: rgb(95, 95, 95);
+    color: #ffffff;
+    font-weight: 600;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+    pointer-events: none;
+    cursor: default;
+}
+
+.text-box {
+    border: 1px solid #555;
+    padding: 12px 15px;
+    border-radius: 8px;
+    word-break: break-all;
+    font-family: monospace;
+    background-color: rgb(42, 42, 42);
+    user-select: text;
+    -webkit-user-select: text;
+}
+
+textarea {
+    width: 100%;
+    resize: none;
+    box-sizing: border-box;
+    padding: 14px;
+    font-size: 16px;
+    line-height: 1.4;
+    background-color: rgb(58, 58, 58);
+    color: #ffffff;
+    border: 1px solid #555;
+    border-radius: 8px;
+    outline: none;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.25s ease, border-color 0.25s ease;
+}
+
+textarea::placeholder {
+    color: rgba(255, 255, 255, 0.65);
+    opacity: 1;
+}
+
+textarea:hover {
+    background-color: rgb(66, 66, 66);
+}
+
+textarea:focus {
+    border-color: #999;
+    background-color: rgb(68, 68, 68);
+}
+
+.textareasmall {
+    height: 15vh;
+}
+.textareaxsmall{
+    height: 12vh;
+}
+.textareabig {
+    height: 20vh;
+}
+
+.textareaLSB {
+    display: block;
+    height: 60vh;
+    width: 50vh;
+}
+.image-upload-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60vh;
+    width: 50vh;
+    box-sizing: border-box;
+    padding: 12px;
+    background-color: rgb(58, 58, 58);
+    border: 2px dashed #777;
+    border-radius: 8px;
+    cursor: pointer;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.25s ease, border-color 0.25s ease;
+    user-select: none;
+}
+
+.image-upload-box input[type="file"] {
+    display: none;
+}
+
+.image-upload-box:hover,
+.image-upload-box.dragover {
+    background-color: rgb(68, 68, 68);
+    border-color: #bbb;
+}
+
+#imagePreview {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 6px;
+    margin: auto;
+}
+.textareaLSBRight,
+.image-upload-boxRight {
+    margin-left: auto;
+    margin-right: 10px;
+}
+
+.textareaLSBLeft,
+.image-upload-boxLeft {
+    margin-left: 10px;
+    margin-right: auto;
+}
+input,
+.download-btn {
+    display: block;
+    width: 250px;
+    margin: 22px auto 0;
+    padding: 10px 0;
+    text-align: center;
+    text-decoration: none;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 500;
+    color: #ffffff;
+    background-color: rgb(66, 66, 66);
+    border: 1px solid #666;
+    border-radius: 6px;
+    box-sizing: border-box;
+    cursor: pointer;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.25s ease, transform 0.2s ease, border-color 0.25s ease;
+}
+
+input:hover,
+.download-btn:hover {
+    background-color: rgb(95, 95, 95);
+    border-color: #999;
+    transform: scale(1.04);
+}
+
+input:active,
+.download-btn:active {
+    transform: scale(0.98);
+}

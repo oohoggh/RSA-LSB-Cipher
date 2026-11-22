@@ -1,0 +1,75 @@
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Зашифровка</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <header>
+        <div class="mode-switcher">
+            <a href="/encRSA">Шифрование RSA</a>
+            <a href="/decRSA" class="active">Дешифрование RSA</a>
+        </div>
+        <div class="mode-switcher">
+            <a href="/encLSB">Шифрование LSB</a>
+            <a href="/decLSB">Дешифрование LSB</a>
+        </div>
+    </header>
+    <form method="post">
+        <table>
+            <tr>
+                <td><h1>Дешифрование RSA</h1></td>
+            </tr>
+            <tr>
+                <td><textarea name="enc_text_user" placeholder="Введите ваш зашифрованный текст..." class="textareasmall"></textarea></td>
+            </tr>
+            <tr>
+                <td>
+                    <textarea name="secret_key_user" placeholder="Введите ваш закрытый ключ..." class="textareasmall"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <textarea name="module_user" placeholder="Введите ваш модуль..." class="textareasmall"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="submit"></td>
+            </tr>
+            {% if data.dec_text %}
+            <tr>
+                <td>
+                    <div class="center">расшифрованный текст:</div> 
+                </td>
+            </tr>
+            <tr><td><div class="text-box">{{ data.dec_text }}</div></td></tr>
+            {% endif %}
+        </table>
+    </form>
+    <script>
+        document.querySelectorAll('textarea, input[type="text"]').forEach(field => {
+            const saved = sessionStorage.getItem(field.name);
+            if (saved !== null) {
+            field.value = saved;
+            }
+
+            field.addEventListener('input', () => {
+            sessionStorage.setItem(field.name, field.value);
+            });
+        });
+    </script>
+    <script>
+        document.querySelector('form').addEventListener('submit', function(event) {
+            const textareas = document.querySelectorAll('textarea');
+            for (let area of textareas) {
+                if (!area.readOnly && area.value.trim() === "") {
+                    event.preventDefault();
+                    break;
+                }
+            }
+        });
+    </script>
+</body>
+</html>

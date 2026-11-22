@@ -1,0 +1,70 @@
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Зашифровка</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <header>
+        <div class="mode-switcher">
+            <a href="/encRSA" class="active">Шифрование RSA</a>
+            <a href="/decRSA">Дешифрование RSA</a>
+        </div>
+        <div class="mode-switcher">
+            <a href="/encLSB">Шифрование LSB</a>
+            <a href="/decLSB">Дешифрование LSB</a>
+        </div>
+    </header>
+    <form method="post">
+        <table>
+            <tr>
+                <td><h1>Шифрование</h1></td>
+            </tr>
+            <tr>
+                <td><textarea name="normal_text" placeholder="Введите ваш текст(около 120 кириличесих или 255 латинских символов)..." class="textareaxsmall"></textarea></td>
+            </tr>
+            <tr>
+                <td>
+                    <textarea name="open_key" placeholder="Введите ваш открытый ключ(при надобности)..." class="textareaxsmall"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <textarea name="module" placeholder="Введите ваш модуль(при надобности)..." class="textareaxsmall"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="submit"></td>
+            </tr>   
+            {% if data.secret_key %}
+            <tr>
+                <td>
+                    <div class="center">Зашифрованный текст: </div>
+                </td>
+            </tr>
+            <tr><td><div class="text-box">{{ data.enc_text }}</div></td></tr>
+            <tr>
+                <td>
+                    <div class="center">Закрытый ключ: </div>
+                </td>
+            </tr>
+            <tr><td><div class="text-box">{{ data.secret_key }}</div></td></tr>
+            <tr>
+                <td>
+                    <div class="center">Модуль: </div>
+                </td>
+            </tr>
+            <tr><td><div class="text-box">{{ data.module }}</div></td></tr>
+            <tr>
+                <td>
+                    <div class="center">Открытый ключ: </div>
+                </td>
+            </tr>
+            <tr><td><div class="text-box">{{ data.open_key }}</div></td></tr>
+            {% endif %}
+        </table>
+    </form>
+</body>
+</html>
